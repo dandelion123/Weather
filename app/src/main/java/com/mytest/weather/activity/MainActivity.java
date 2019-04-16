@@ -1,7 +1,9 @@
-package com.mytest.weather;
+package com.mytest.weather.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.mytest.weather.R;
 
 public class MainActivity extends AppCompatActivity {
 
