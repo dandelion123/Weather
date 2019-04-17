@@ -5,6 +5,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import com.mytest.weather.db.WeatherOpenHelper;
 
@@ -66,8 +67,8 @@ public class WeatherDB {
             do {
                 Province province = new Province();
                 province.setId(cursor.getInt(cursor.getColumnIndex("id")));
-                province.setProvinceCode(cursor.getString(cursor.getColumnIndex("province_name")));
-                province.setProvinceName(cursor.getString(cursor.getColumnIndex("province_code")));
+                province.setProvinceCode(cursor.getString(cursor.getColumnIndex("province_code")));
+                province.setProvinceName(cursor.getString(cursor.getColumnIndex("province_name")));
                 list.add(province);
             } while (cursor.moveToNext());
         }
@@ -95,7 +96,7 @@ public class WeatherDB {
      * @param provinceId
      * @return
      */
-    public List<City> loadCitys(int provinceId) {
+    public List<City> loadCities(int provinceId) {
         List<City> list = new ArrayList<City>();
         Cursor cursor = db.query("City", null, "province_id = ?", new String[]{String.valueOf(provinceId)},
                 null, null, null);
